@@ -1,0 +1,72 @@
+﻿<Window x:Class="hattertar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hattertar"
+        mc:Ignorable="d"
+        Title="Háttértár" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.6*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.ColumnSpan="3" Width="400" Height="60" SelectedIndex="0"
+                  FontSize="25" VerticalContentAlignment="Center" 
+                  HorizontalContentAlignment="Center" x:Name="hddlist">
+            <ComboBoxItem Content="hdd1"/>
+            <ComboBoxItem Content="hdd2"/>
+            <ComboBoxItem Content="ssd1"/>
+            <ComboBoxItem Content="ssd2"/>
+        </ComboBox>
+
+        <Label Content="Kapacitás:" Grid.Row="1" FontSize="20" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="kapac" Grid.Row="1" Grid.Column="1" Width="200" Height="50"
+                 VerticalContentAlignment="Center" HorizontalContentAlignment="Right"
+                 FontSize="20" Text="2"/>
+        <ComboBox x:Name="kapaclist" Grid.Row="1" Grid.Column="2" 
+                  Height="50" Width="150" SelectedIndex="0" FontSize="20"
+                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="Mb"/>
+            <ComboBoxItem Content="Gb"/>
+            <ComboBoxItem Content="Tb"/>
+        </ComboBox>
+
+
+        <Label Content="Átviteli sebesség:" Grid.Row="2" FontSize="20" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="aktVal" Grid.Column="1" Grid.Row="2" Width="100" Height="40"
+               HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Green"
+               Content="3220" FontSize="15" VerticalContentAlignment="Bottom" Margin="281,0,0,0" Grid.ColumnSpan="2"/>
+        <Slider Value="3220" Minimum="10" Maximum="5000" Grid.Row="2" Grid.Column="1"
+                Height="30" VerticalAlignment="Center" x:Name="sliAtv" 
+                ValueChanged="sliAtv_ValueChanged" TickFrequency="1" IsSnapToTickEnabled="True"/>
+        <Label Content="min. 10" Grid.Row="2" Grid.Column="1" Height="50" Width="50"
+               HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <Label Content="max. 5000" Grid.Row="2" Grid.Column="1" Height="50" Width="70"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <ComboBox x:Name="atvlist" Grid.Row="2" Grid.Column="2" 
+                  Height="50" Width="150" SelectedIndex="0" FontSize="20"
+                  HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBoxItem Content="mbps"/>
+            <ComboBoxItem Content="Kbps"/>
+            <ComboBoxItem Content="Mbps"/>
+            <ComboBoxItem Content="Gbps"/>
+        </ComboBox>
+
+        <Button x:Name="btnEval" Content="Számol" Grid.Row="3" FontSize="20" 
+                Width="130" Height="50" Click="btnEval_Click"/>
+        <Label x:Name="lblResult" Grid.Column="1" Grid.Row="3" Width="160" Height="70"
+               Content="? sec" FontSize="30" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center"/>
+    </Grid>
+</Window>
